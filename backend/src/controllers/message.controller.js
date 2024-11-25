@@ -11,8 +11,8 @@ export const getUsersForSidebar = async (req, res) => {
 
     res.status(200).json(filteredUsers);
   } catch (error) {
-    console.error("Error in getUsersForSidebar: ", error.message);
-    res.status(500).json({ error: "Internal server error" });
+    console.error("Errore in getUsersForSidebar: ", error.message);
+    res.status(500).json({ error: "Errore interno server" });
   }
 };
 
@@ -30,8 +30,8 @@ export const getMessages = async (req, res) => {
 
     res.status(200).json(messages);
   } catch (error) {
-    console.log("Error in getMessages controller: ", error.message);
-    res.status(500).json({ error: "Internal server error" });
+    console.log("Errore in getMessages controller: ", error.message);
+    res.status(500).json({ error: "Errore Interno Server" });
   }
 };
 
@@ -43,7 +43,7 @@ export const sendMessage = async (req, res) => {
   
       // Controlla se ci sono dati nel messaggio (testo o immagine)
       if (!text.trim() && !image) {
-        return res.status(400).json({ message: "Message content is required" });
+        return res.status(400).json({ message: "Il contenuto del messaggio non può essere vuoto" });
       }
   
       let imageUrl = null;
@@ -75,6 +75,6 @@ export const sendMessage = async (req, res) => {
     res.status(201).json(newMessage);
   } catch (error) {
     console.log("Errore in sendMessage controller: ", error.message);
-    res.status(500).json({ error: "Internal server error" });
+    res.status(500).json({ error: "Errore Interno Server" });
   }
 };
